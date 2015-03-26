@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Training and Placement Cell - Pussgrc (Android Platform)</title>
+		{% load staticfiles %}
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{% static 'css/jumbotron-narrow.css' %}" rel="stylesheet">
+		<script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="{% static 'js/docs.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js'%}"></script>
+		<script src="{% static 'js/jquery.min.js'%}"/>
+</script>
+
+	</head>
+	<body>
+		<center>
+			<h1>Welcome to edit Page</h1>
+		<center>
+		<br><br>
+		<div class="container"> 
+    			<div class="header">
+				<center>
+        			<nav>
+					  <ul class="nav nav-pills pull-right">
+						<h3>Please choose a Company to edit from following</h3>
+						<li role="presentation">
+						  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+						    List of Companies <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" role="menu">
+							{% for d in drive %}
+						    <li><a href="/update/{{d.companyName}}">{{d.companyName}}</a></li>
+							 {% endfor %} 
+						  </ul>
+          				  </ul>
+        			</nav>
+				</center	>
+			</div>
+		</div>
+	</li>
+
+	</body>
+</html>
+

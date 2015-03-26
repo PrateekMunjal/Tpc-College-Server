@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Post for TPC Drive (Android Platform)</title>
+        {% load staticfiles %}
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <p>
+                    <font style="color:red">
+                <h2><strong>Placement Drive App</strong></h2></font>
+                <p style="color:darkred">
+                    Get updates on placement drives on your android phone
+                </p>
+                <p style="color:darkred">
+                    <strong><u>NOTE:</u></strong><br>
+                    Please Fill the below fields to update drive
+                </p>
+                </p>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <form action="" method="post">
+                {% csrf_token %}
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" align="center"><strong>Update Posted DRIVE</strong></div>
+			{% for form in forms %}
+                        <div class="panel-body">
+
+                            <div class="form-group">
+							
+                                <label for="userName">NAME OF COMPANY</label>
+                                <div class="input-group">
+                              		<input class="form-control " id="id_companyName" maxlength="1000" name="companyName" type="text" value="{{form.companyName}}"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="userName">VENUE OF DRIVE</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="id_venue" maxlength="1000" name="venue" type="text" value="{{form.venue}}"/>                  	
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="userName">DESCRIPTION</label>
+                                <div class="input-group">
+                                    <textarea class="form-control" rows="7" name="description">{{form.description}}</textarea>                	
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="userName">BRANCH ELIGIBLE</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="id_branch" maxlength="200" name="branch" type="text" value="{{form.branch}}"/>                 	
+                                </div>
+                            </div>
+				<div class="form-group">
+                                <label for="userName">SKILLS REQUIRED</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="id_skillsRequired" maxlength="2000" name="skillsRequired" type="text" value="{{form.skillsRequired}}" />                 	             	
+                                </div>
+                            </div>
+				<div class="form-group">
+                                <label for="userName">DATE OF DRIVE</label>
+                                <div class="input-group">
+                           <input class="form-control" id="id_dateofdrive" maxlength="300" name="dateofdrive" type="text" value="{{form.dateofdrive}}"/>                   	
+                                </div>
+                            </div>
+				<div class="form-group">
+                                <label for="userName">Password</label>
+                                <div class="input-group">
+                           <input class="form-control" id="id_password" maxlength="300" name="password" type="password"/>                   	
+                                </div>
+                            </div>
+                       </div>
+			{%endfor%}
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <button class="btn btn-primary btn-lg active" type="submit" role="button" style="margin-left:20px">UPDATE</button>
+            </div>
+		<br><br>
+        </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+</html>

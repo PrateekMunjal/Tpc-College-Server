@@ -1,0 +1,1 @@
+web: gunicorn placementCell.wsgi

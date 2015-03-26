@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>
+      Placement Drives
+    </title>
+   
+	{% load staticfiles%}
+	<link rel="icon" href="{% static 'images/BloodApp.ico' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="{% static 'css/jumbotron-narrow.css' %}" rel="stylesheet">
+    <script src="{% static 'js/docs.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+  
+<script>
+	$(document).ready(function(){
+		$('.cut').css('overflow','hidden').css('height','100px');
+		alert('hello');
+		var flag=false;
+		$('.cut').click(function(){
+			if(flag==false)
+			{
+				$(this).css('overflow','auto').css('height','auto');
+			}
+			else
+			{
+				$(this).css('overflow','hidden').css('height','100px');
+			}
+		});
+	});
+</script>
+<style>
+	.hide{
+	overflow:hidden;
+	height:100px;
+}
+.show{
+	overflow:auto;
+	height:auto;
+}
+</style>
+  </head>
+  <body >
+<div>
+   <div class="container"> 
+    <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Home</a></li>
+            <li role="presentation"><a href="/about">About</a></li>
+            <li role="presentation"><a href="#">Co-ordinators</a></li>
+<li role="presentation" class="active"><a href="/allDrives">Placement Drives</a></li>
+
+<br>
+<li role="presentation">
+		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+		    List of Companies <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu">
+			{% for d in drive %}
+		    <li><a href="/company/{{d.companyName}}">{{d.companyName}}</a></li>
+			 {% endfor %} 
+		  </ul>
+          </ul>
+        </nav>
+        <h3 class="text-muted">TPC - Android Platform</h3>
+      </div>
+</li>
+</div>
+    <br>
+    <br>
+    <font style="color:red;text-align:center">
+      <h2>
+        <strong>
+          ALL DRIVES BY TPC 
+        </strong>
+      </h2>
+    </font>
+    <h2 class="sub-header">
+    </h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              COMPANY NAME
+            </th>
+            <th>
+              VENUE
+            </th>
+            <th>
+              BRANCH ELIGIBLE
+            </th>
+            <th style="width:280px;overflow:auto;position:relative;">
+              SKILLS REQUIRED
+            </th>
+	    <th>
+              DATE OF DRIVE
+            </th>
+	    <th>
+              DESCRIPTION
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+           {% for d in drive %}
+          <tr>
+            <td>
+<div class="cut" style="width:120px;overflow:auto">
+              {{d.companyName}}
+</div>
+            </td>
+            <td width="200">
+<div class="cut" style="width:100px;overflow:auto">
+              {{d.venue}}
+</div>
+            </td>
+            <td>
+<div class="cut" style="width:100px;overflow:auto;">
+              {{d.branch}}
+</div>
+            </td>
+            <td>
+		<div class="cut" style="width:250px;overflow:auto">
+              {{d.skillsRequired}}
+		</div>
+            </td>
+	    <td>
+              {{d.dateofdrive}}
+            </td>
+	    <td style="width:30%">
+<div class="cut" style="width:350px;overflow:auto;text-align:justify">
+              {{d.description}}
+</div>
+            </td>
+          </tr>
+          {% endfor %}         
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+<div>
+
+</body>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places">
+</script>
+
+
+<script src="{% static 'js/bootstrap.min.js'%}">
+</script>
+<script src="{% static 'js/jquery.min.js'%}">
+</script>
+
+</html>
